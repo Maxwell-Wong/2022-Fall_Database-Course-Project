@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Database System</title>
+</head>
+<body style="padding:100px">
+<center>
+    <h1 >Automobile Database System</h1>
+
+    <form method="post">
+    {% csrf_token %}
+            <p>
+                <h5>select dealer:
+                    <select name="dealer_id">
+                         {% for dealer in dealers %}
+                        <option value={{ dealer.dealer_id }}>{{ dealer.dealer_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" name="check">Check</button>
+                </h5>
+             </p>
+
+        <h5>Dealer {{ dealer_name }}'s vehicles</h5>
+        <table id="sales" BGCOLOR="#fdf5e6" width="100%" style="text-align: center">
+            <thead class="Student List">
+                <tr>
+                    <th>VID</th>
+                    <th>brand</th>
+                    <th>model</th>
+                    <th>color</th>
+                    <th>engine</th>
+                    <th>transmission</th>
+                    <th>price($)</th>
+                    <th>stock date</th>
+                    <th>sold date</th>
+                </tr>
+
+                 {% for key, vehicle in info.items %}
+                     <tr>
+                     {% for key, val in vehicle.items %}
+                         <td>{{ val }}</td>
+                     {% endfor %}
+                    </tr>
+                {% endfor %}
+            </thead>
+        </table>
+
+    </form>
+
+</center>
+</body>
+</html>
