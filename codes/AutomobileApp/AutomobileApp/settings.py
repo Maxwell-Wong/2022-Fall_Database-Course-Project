@@ -73,6 +73,7 @@ WSGI_APPLICATION = 'AutomobileApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# Configure your database settings here: 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
